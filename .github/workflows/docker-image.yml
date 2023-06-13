@@ -1,20 +1,20 @@
-name: CI
+name: Python application
+
 on:
   push:
-    branches: [ master ]
+   branches: [ master ]
   pull_request:
     branches: [ master ]
-  workflow_dispatch:
+      
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-
-
-      - name: Scripts
-        run: |
-          docker build -t app .
-          docker login abhishekkaddipudi -p dckr_pat_lSNw6_uuStkmLXFS0o0hNHtard8
-          docker tag app abhishekkaddipudi/credit_score
-          docker push abhishekkaddipudi/credit_score
+    - uses: actions/checkout@v1
+    - name: Build & Push Image
+      run: |
+        docker login -u "abhishekkaddipudi" -p dckr_pat_lSNw6_uuStkmLXFS0o0hNHtard8
+        docker image build -t abhishekkaddipudi/credit_score:latest .
+        docker push abhishekkaddipudi/credit_score:latest
