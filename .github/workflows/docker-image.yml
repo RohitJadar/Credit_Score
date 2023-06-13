@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+           docker login -u abhishekkaddipudi -p dckr_pat_lSNw6_uuStkmLXFS0o0hNHtard8
+           docker tag app abhishekkaddipudi/credit_score
+           docker push abhishekkaddipudi/credit_score
