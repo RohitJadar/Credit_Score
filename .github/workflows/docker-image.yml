@@ -15,6 +15,6 @@ jobs:
       - name: Scripts
         run: |
           docker build -t app .
-          docker login -u abhishekkaddipudi -p dckr_pat_lSNw6_uuStkmLXFS0o0hNHtard8
-          docker tag app itsmaheshkariya/test
-          docker push itsmaheshkariya/test
+          docker login abhishekkaddipudi -p dckr_pat_lSNw6_uuStkmLXFS0o0hNHtard8
+          docker tag app abhishekkaddipudi/credit_score
+          docker push abhishekkaddipudi/credit_score
