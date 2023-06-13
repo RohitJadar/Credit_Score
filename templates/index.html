@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Loan Application Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      overflow: auto;
+    }
+    
+    .container {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      margin: 20px auto;
+      border: 2px solid #000;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label input[type="text"],
+    label input[type="number"] {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>Loan Application Form</h1>
+  <form action="{{url_for('predict')}}", method="POST">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" required><br><br>
+
+    <label for="customerId">Customer ID:</label>
+    <input type="text" id="customerId" name="customerId" required><br><br>
+
+    <label for="month">Month:</label>
+    <input type="text" id="month" name="month" required><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required><br><br>
+
+    <label for="ssn">SSN:</label>
+    <input type="text" id="ssn" name="ssn" required><br><br>
+
+    <label for="Occupation">Occupation:</label>
+    <select id="Occupation" name="Occupation" required >
+      <option value="0">Accountant</option>
+      <option value="1">Architect</option>
+      <option value="2">Developer</option>
+      <option value="3">Doctor</option>
+      <option value="4">Engineer</option>
+      <option value="5">Entrepreneur</option>
+      <option value="6">Journalist</option>
+      <option value="7">Lawyer</option>
+      <option value="8">Manager</option>
+      <option value="9">Mechanic</option>
+      <option value="10">Media Manager</option>
+      <option value="11">Musician</option>
+      <option value="12">Scientist</option>
+      <option value="13">Teacher</option>
+      <option value="14">Writer</option>
+    </select>
+
+    <label for="annualIncome">Annual Income:</label>
+    <input type="number" step="any" id="annualIncome" name="annualIncome" required><br><br>
+
+    <label for="monthlySalary">Monthly Inhand Salary:</label>
+    <input type="number" step="any" id="monthlySalary" name="monthlySalary" required><br><br>
+
+    <label for="bankAccounts">Number of Bank Accounts:</label>
+    <input type="number" id="bankAccounts" name="bankAccounts" required><br><br>
+
+    <label for="creditCards">Number of Credit Cards:</label>
+    <input type="number" id="creditCards" name="creditCards" required><br><br>
+
+    <label for="interestRate">Interest Rate:</label>
+    <input type="number" step="any" id="interestRate" name="interestRate" required><br><br>
+
+    <label for="numOfLoans">Number of Loans:</label>
+    <input type="number" id="numOfLoans" name="numOfLoans" required><br><br>
+
+    <label for="LoanType">LoanType (0-999):</label>
+    <input type="number" id="LoanType" name="LoanType" min="0" max="999" required>
+   
+    <label for="delayFromDueDate">Delay from Due Date:</label>
+    <input type="number" step="any" id="delayFromDueDate" name="delayFromDueDate" required><br><br>
+
+    <label for="numOfDelayedPayments">Number of Delayed Payments:</label>
+    <input type="number" id="numOfDelayedPayments" name="numOfDelayedPayments" required><br><br>
+
+    <label for="changedCreditLimit">Changed Credit Limit:</label>
+    <input type="number" step="any" id="changedCreditLimit" name="changedCreditLimit" required><br><br>
+
+    <label for="numCreditInquiries">Number of Credit Inquiries:</label>
+    <input type="number" id="numCreditInquiries" name="numCreditInquiries" required><br><br>
+
+    <label for="creditMix">CreditMix:</label>
+    <select id="creditMix" name="creditMix">
+      <option value="0">Bad</option>
+      <option value="1">Good</option>
+      <option value="2">Standard</option>
+    </select>
+
+    <label for="outstandingDebt">Outstanding Debt:</label>
+    <input type="number" step="any" id="outstandingDebt" name="outstandingDebt" required><br><br>
+
+    <label for="creditUtilizationRatio">Credit Utilization Ratio:</label>
+    <input type="number" step="any" id="creditUtilizationRatio" name="creditUtilizationRatio" required><br><br>
+
+    <label for="creditHistoryAge">Credit History Age:</label>
+    <input type="number" step="any" id="creditHistoryAge" name="creditHistoryAge" required><br><br>
+
+    <label for="minAmountPayment">Minimum Amount Payment:</label>
+    <select id="minAmountPayment" name="minAmountPayment">
+      <option value="0">NM</option>
+      <option value="1">No</option>
+      <option value="2">Yes</option>
+    </select>
+
+    <label for="totalEMI">Total EMI per Month:</label>
+    <input type="number" step="any" id="totalEMI" name="totalEMI" required><br><br>
+
+    <label for="monthlyInvestment">Amount Invested Monthly:</label>
+    <input type="number"  step="any" id="monthlyInvestment" name="monthlyInvestment" required><br><br>
+
+    <label for="paymentBehaviour">Payment Behaviour:</label>
+    <select id="paymentBehaviour" name="paymentBehaviour">
+      <option value="0">High_spent_Large_value_payments</option>
+      <option value="1">High_spent_Medium_value_payments</option>
+      <option value="2">High_spent_Small_value_payments</option>
+      <option value="3">Low_spent_Large_value_payments</option>
+      <option value="4">Low_spent_Medium_value_payments</option>
+      <option value="5">Low_spent_Small_value_payments</option>
+    </select>
+    <label ></label>
+   
+
+    <label for="monthlyBalance">Monthly Balance:</label>
+    <input type="number" step="any" id="monthlyBalance" name="monthlyBalance" required><br><br>
+    <label ></label>
+    <label ></label>
+    <input type="submit" value="Predict">
+
+    <input type="text" id="fname" readonly value={{var}}  ><br><br>
+
+  </form>
+</div>
+</body>
+</html>

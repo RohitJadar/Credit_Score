@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Loan Application Form</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      overflow: auto;
+    }
+    
+    .container {
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      margin: 20px auto;
+      border: 2px solid #000;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label input[type="text"],
+    label input[type="number"] {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <h1>CreditScore:</h1>
+  <form action="{{url_for('predict')}}", method="POST">
+
+
+  
+    <input type="text" id="fname" value={{var}}  readonly><br><br>
+
+  </form>
+</div>
+</body>
+</html>
