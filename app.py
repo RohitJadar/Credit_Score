@@ -1,21 +1,16 @@
-import joblib
+
 import numpy as np
 from flask import Flask,request,app,render_template
-
+from xgboost import XGBClassifier
 
 def predciton(x):
-
+    XGB=XGBClassifier()
    
    
-    XGB=joblib.load("XGBOOST.joblib")
+    XGB.load_model("XGBOOST.json")
     
     y_pred=XGB.predict(x)
-
-
-
-
     pred={0:'Good', 1:'Poor', 2:'Standard'}
-
     return pred[y_pred[0]]
 
 
