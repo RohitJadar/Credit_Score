@@ -8,8 +8,8 @@ def predciton(x):
 
    
    
-    XGB=joblib.load("StackedModel.joblib")
-    x=pd.DataFrame(x,columns=XGB.feature_names_in_)
+    XGB=joblib.load("XGBOOST.joblib")
+    
     y_pred=XGB.predict(x)
 
 
@@ -33,11 +33,11 @@ def predict():
 
  
     data=np.array([float(x) if isinstance(x,str) else x  for x in request.form.values() ])
-    print(data)
+  
 
     predict=predciton([data[6:]])
 
     return render_template("result.html",var=predict)
 
 if __name__ == '__main__':
-    app.run(debug=True,host="0.0.0.0:5000")
+    app.run()
