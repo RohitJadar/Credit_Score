@@ -1,17 +1,15 @@
-
-
-import numpy as np
+import pandas as pd
 import joblib
 import numpy as np
-import socket
 from flask import Flask,request,app,render_template
 
 
 def predciton(x):
-    scalar=joblib.load("scaler.joblib")
 
-
-    XGB=joblib.load("XGBOOST.joblib")
+   
+   
+    XGB=joblib.load("StackedModel.joblib")
+    x=pd.DataFrame(x,columns=XGB.feature_names_in_)
     y_pred=XGB.predict(x)
 
 
@@ -35,7 +33,7 @@ def predict():
 
  
     data=np.array([float(x) if isinstance(x,str) else x  for x in request.form.values() ])
-  
+    print(data)
 
     predict=predciton([data[6:]])
 
