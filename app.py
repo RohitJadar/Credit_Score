@@ -9,16 +9,14 @@ from flask import Flask,request,app,render_template
 
 def predciton(x):
     scalar=joblib.load("scaler.joblib")
-    RF=joblib.load("RandomForest.joblib")
+
 
     XGB=joblib.load("XGBOOST.joblib")
+    y_pred=XGB.predict(x)
 
-    GB=joblib.load("gradient_boosting.joblib")
 
-    stack=[RF,XGB,GB]
-    
-    predictions=np.array([model.predict(x) for model in stack]).T
-    y_pred=joblib.load("KNN.joblib").predict(predictions)
+
+
     pred={0:'Good', 1:'Poor', 2:'Standard'}
 
     return pred[y_pred[0]]
